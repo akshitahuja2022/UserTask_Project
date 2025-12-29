@@ -119,4 +119,19 @@ const logout = async (req, res) => {
   }
 };
 
-export { signup, login, logout };
+const isAuthenticate = (req, res) => {
+  res.status(200).json({
+    success: true,
+    user: {
+      fullname: req.user.fullname,
+      email: req.user.email,
+      role: req.user.role,
+      status: req.user.status,
+      lastlogin: req.user.lastlogin,
+      createdAt: req.user.createdAt,
+      updatedAt: req.user.updatedAt,
+    },
+  });
+};
+
+export { signup, login, logout, isAuthenticate };

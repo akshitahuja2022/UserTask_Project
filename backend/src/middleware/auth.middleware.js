@@ -1,5 +1,8 @@
 import Joi from "joi";
-
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import UserModel from "../models/user.js";
+dotenv.config();
 const signupValidation = async (req, res, next) => {
   try {
     const schema = Joi.object({
@@ -47,4 +50,37 @@ const loginValidation = async (req, res, next) => {
     res.status(500).json({ message: "Internal Server Error", success: false });
   }
 };
-export { signupValidation, loginValidation };
+
+const ProtectedRoute = async (req, res, next) => {
+  try {
+    const token = req.cookies.userToken;
+
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "User Authentication required", success: false });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized - invalid token", success: false });
+    }
+    const user = await UserModel.findById(decoded._id);
+    if (!user) {
+      return res.status(404).json({
+        message: "Invalid Credentials - User Not Found",
+        success: false,
+      });
+    }
+    req.user = user;
+    next();
+  } catch (error) {
+    return res.status(404).json({
+      message: "Internal Server Error",
+      success: false,
+    });
+  }
+};
+export { signupValidation, loginValidation, ProtectedRoute };
