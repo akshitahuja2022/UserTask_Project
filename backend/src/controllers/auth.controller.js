@@ -6,7 +6,7 @@ dotenv.config();
 
 const signup = async (req, res) => {
   try {
-    const { fullname, email, password } = req.body;
+    const { fullname, email, password, role } = req.body;
 
     const existedUser = await UserModel.findOne({ email });
     if (existedUser) {
@@ -21,6 +21,7 @@ const signup = async (req, res) => {
       fullname,
       email,
       password: hashedPassword,
+      role: role && role === "admin" ? "admin" : "user",
     });
 
     const jwtToken = jwt.sign({ _id: user.id }, process.env.JWT_SECRET, {

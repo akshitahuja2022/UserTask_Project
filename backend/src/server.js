@@ -5,6 +5,7 @@ import connectDb from "./config/db.js";
 import cookieparser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
+import adminRouter from "./routes/admin.route.js";
 dotenv.config();
 connectDb();
 
@@ -15,7 +16,8 @@ app.use(cors());
 
 // routes
 app.use("/api/auth", authRouter);
-app.use('/api/user', userRouter)
+app.use('/api/user', userRouter);
+app.use('/api/admin', adminRouter)
 
 app.get("/", (req, res) => {
   res.send("Welcom to User Management Server");
