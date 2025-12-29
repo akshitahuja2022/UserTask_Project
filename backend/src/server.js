@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import cors from 'cors';
+import cors from "cors";
 import connectDb from "./config/db.js";
 import cookieparser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
@@ -12,12 +12,17 @@ connectDb();
 const app = express();
 app.use(express.json());
 app.use(cookieparser());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 // routes
 app.use("/api/auth", authRouter);
-app.use('/api/user', userRouter);
-app.use('/api/admin', adminRouter)
+app.use("/api/user", userRouter);
+app.use("/api/admin", adminRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcom to User Management Server");
