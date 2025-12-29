@@ -74,6 +74,7 @@ const ProtectedRoute = async (req, res, next) => {
         success: false,
       });
     }
+
     req.user = user;
     next();
   } catch (error) {
@@ -83,4 +84,17 @@ const ProtectedRoute = async (req, res, next) => {
     });
   }
 };
-export { signupValidation, loginValidation, ProtectedRoute };
+
+const authorizeRoles = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({
+        message: "Access Denied",
+        success: false,
+      });
+    }
+    next();
+  };
+};
+
+export { signupValidation, loginValidation, ProtectedRoute, authorizeRoles };
