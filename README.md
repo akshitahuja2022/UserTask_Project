@@ -1,61 +1,125 @@
+
 Mini User Management System
 
-A full-stack User Management System designed for authentication, role-based authorization (Admin/User), and user account lifecycle management. This project demonstrates backend API development, frontend UI, secure authentication flows, RBAC, CRUD operations, and deployment.
+A full-stack User Management System built with secure authentication, role-based authorization (Admin/User), and user account lifecycle management. This project includes backend API development, frontend UI, CRUD operations, RBAC, and deployment.
 
 🔗 GitHub Repository:
 https://github.com/akshitahuja2022/User_Management
 
 📌 Project Overview
 
-The Mini User Management System is a web application that allows users to create accounts, log in, manage their profiles, and interact with the system based on assigned roles. Admin users have elevated privileges including activating/deactivating accounts and managing all users. Regular users can only manage their personal profile.
+This system allows:
+
+Users to sign up, log in, update profile, and change password
+
+Admins to manage all users with activation/deactivation controls
+
+JWT authentication for secure route protection
+
+Role-Based Access Control (RBAC) for Admin & User dashboards
 
 🎯 Purpose
 
-This project is built as part of a 48-hour assessment to evaluate:
+This project was developed as part of a 48-hour technical assessment to evaluate:
 
-Backend & frontend development skills
+Backend & Frontend development skills
 
-JWT authentication & password hashing
+API security, validation & RBAC implementation
 
-Secure REST APIs with role-based access control
+Authentication flows using JWT & bcrypt
 
-Clean architecture & deployment abilities
+Cloud deployment & environment configuration
 
-🛠 Tech Stack Used
+1️⃣ Tech Stack Used
 Component	Technology
 Frontend	React (Hooks, Axios, Protected Routes)
 Backend	Node.js + Express
-Database	MongoDB (Cloud via MongoDB Atlas)
-Authentication	JWT Authentication
-Password Security	bcrypt hashing
-Deployment	Backend: Render/Railway • Frontend: Vercel/Netlify
+Database	MongoDB Atlas (Cloud Database)
+Authentication	JWT (Access Token)
+Password Hashing	bcrypt
+Deployment	Backend → Render Frontend → Vercel
+2️⃣ Setup Instructions
+📌 Backend Setup
+cd backend
+npm install
+npm start
 
-🔐 Environment Variables (without actual values)
-Backend :
+📌 Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+3️⃣ Environment Variables (No Actual Values)
+Backend .env
 PORT=4000
 MONGO_URI=
 JWT_SECRET=
 NODE_ENV=
 FRONTEND_URL=
 
-Fronted :
-VITE_BACKEND_URL=http://localhost:4000
+Frontend .env
+VITE_BACKEND_URL=
 
-🌍 Deployment Instructions
-Backend Deployment (Render/Railway)
 
-Push code to GitHub
+⚠️ Add .env to .gitignore to protect sensitive keys.
 
-Create new service on Render/Railway
+4️⃣ Deployment Instructions
+🚀 Backend Deployment (Render)
+1. Push backend to GitHub
+2. Create new Web Service (Render)
+3. Add .env variables
+4. Build/Start Command:
+   npm install
+   npm start
+5. Deploy & copy public API URL
 
-Add environment variables from .env
+🌐 Frontend Deployment (Vercel)
+1. Import frontend from GitHub
+2. Add environment variable
+3. Deploy & test connection
 
-Deploy & copy the generated backend URL
+🧍 Authentication Endpoints
+Method	Endpoint	Description
+POST	api/auth/signup	Create new account
+POST	api/auth/login	Login & receive JWT
+POST	api/auth/logout	Logout user
+GET	api/auth/authenticate	Current user details
 
-Frontend Deployment (Vercel/Netlify)
 
-Import frontend folder from GitHub
+👑 Admin Endpoints (Admin Only)
+Method	Endpoint	Description
+GET	api/admin/users	View all users (pagination)
+PUT	api/admin/users/:id/status
 
-Add the VITE_API_BASE_URL environment variable
+👤 User Endpoints (Authenticated Users)
+Method	Endpoint	Description
+GET	/user/profile	View user profile
+PUT	/user/update	Update name/email
+PUT	/user/change-password	Change password
+📦 API Collection (Postman)
 
-Deploy & connect to backend URL
+👉 Postman Collection File (Add in repo root):
+
+https://akshitahuja.postman.co/workspace/Team-Workspace~3e2b0578-c471-4f8a-8e9e-a995b3f32b9b/collection/45115762-7c38cd4a-b1cf-4dd7-8d66-de1064a27f97?action=share&source=copy-link&creator=45115762)
+
+📂 Folder Structure
+User_Management/
+├── backend/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   └── pages/
+└── README.md
+
+🧑‍💻 Developed By
+
+Akshit Ahuja 🎓 B.Tech CSE | Engineering College Bikaner
+
+🔗 LinkedIn Profile - https://www.linkedin.com/in/akshit-ahuja-1583b928a/
+
+🔗 GitHub Profile - https://github.com/akshitahuja2022
