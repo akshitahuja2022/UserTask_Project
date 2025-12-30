@@ -12,8 +12,8 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["active", "inactive"],
-      default: "inactive",
+      enum: ["active", "deactive"],
+      default: "deactive",
     },
     lastlogin: {
       type: Date,

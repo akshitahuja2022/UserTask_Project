@@ -120,7 +120,7 @@ const AdminDashboard = () => {
                     <button
                       onClick={() => {
                         setSelectedUser(user);
-                        setActionType("inactive");
+                        setActionType("deactive");
                         setShowDialog(true);
                       }}
                       className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-500"
@@ -183,6 +183,59 @@ const AdminDashboard = () => {
           </div>
         </div>
       )}
+
+      {/* Mobile */}
+      <div className="md:hidden space-y-4">
+        {currentUsers.map((user) => (
+          <div key={user._id} className="bg-white p-4 rounded-lg shadow">
+            <p className="text-sm">
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p className="text-sm">
+              <strong>Name:</strong> {user.fullname}
+            </p>
+            <p className="text-sm capitalize">
+              <strong>Role:</strong> {user.role}
+            </p>
+            <p className="text-sm">
+              <strong>Status:</strong>{" "}
+              <span
+                className={`font-semibold ${
+                  user.status === "active" ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {user.status}
+              </span>
+            </p>
+
+            <div className="mt-3 flex gap-2">
+              {user.status === "active" ? (
+                <button
+                  onClick={() => {
+                    setSelectedUser(user);
+                    setActionType("deactive");
+                    setShowDialog(true);
+                  }}
+                  className="flex-1 bg-red-600 text-white py-1 rounded"
+                >
+                  Deactivate
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setSelectedUser(user);
+                    setActionType("active");
+                    setShowDialog(true);
+                  }}
+                  className="flex-1 bg-green-600 text-white py-1 rounded"
+                >
+                  Activate
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="flex justify-center mt-6 gap-2">
         <button

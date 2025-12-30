@@ -17,21 +17,21 @@ export default function UserAccount() {
               <h2 className="block text-md font-medium text-gray-700">
                 Full Name
               </h2>
-              <p className="mt-1 w-96 rounded-lg outline-none border border-gray-300 px-4 py-2">
+              <p className="mt-1 w-80 sm:w-96 rounded-lg outline-none border border-gray-300 px-4 py-2">
                 {user.fullname}
               </p>
             </div>
 
             <div>
               <h2 className="block text-md font-medium text-gray-700">Email</h2>
-              <p className="mt-1 w-96 rounded-lg outline-none border border-gray-300 px-4 py-2">
+              <p className="mt-1 w-80 sm:w-96 rounded-lg outline-none border border-gray-300 px-4 py-2">
                 {user.email}
               </p>
             </div>
 
             <div>
               <h2 className="block text-md font-medium text-gray-700">Role</h2>
-              <p className="mt-1 w-96 rounded-lg border bg-gray-100 px-4 py-2 text-gray-600">
+              <p className="mt-1 w-80 sm:w-96 rounded-lg border bg-gray-100 px-4 py-2 text-gray-600">
                 {user.role}
               </p>
             </div>
