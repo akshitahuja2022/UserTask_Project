@@ -15,7 +15,7 @@ const authRouter = express.Router();
 
 authRouter.post("/signup", signupValidation, signup);
 authRouter.post("/login", loginValidation, login);
-authRouter.post("/logout", logout);
+authRouter.post("/logout", ProtectedRoute, logout);
 
 // check user is authenticate or not
 authRouter.get("/authenticate", ProtectedRoute, isAuthenticate);

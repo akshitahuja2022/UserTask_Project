@@ -27,7 +27,10 @@ const updateProfile = async (req, res) => {
     if (fullname) updates.fullname = fullname;
     if (email) {
       const existedUserEmail = await UserModel.findOne({ email });
-      if (existedUserEmail) {
+      if (
+        existedUserEmail &&
+        existedUserEmail._id.toString() !== req.user._id.toString()
+      ) {
         return res.status(400).json({
           message: "User already exists with this email",
           success: false,
@@ -60,7 +63,7 @@ const changePassword = async (req, res) => {
 
     const isPassword = await bcrypt.compare(currentPassword, user.password);
     if (!isPassword) {
-      res.status(403).json({
+     return res.status(403).json({
         message: "Invalid Password",
         success: false,
       });
@@ -69,7 +72,7 @@ const changePassword = async (req, res) => {
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
     const updatedUser = await UserModel.findByIdAndUpdate(
-      req.user,
+      req.user._id,
       {
         password: hashedNewPassword,
       },

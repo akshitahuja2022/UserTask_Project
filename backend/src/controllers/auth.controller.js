@@ -40,6 +40,8 @@ const signup = async (req, res) => {
       user: {
         fullname: user.fullname,
         email: user.email,
+        role: user.role,
+        status: user.status,
       },
     });
   } catch (error) {
@@ -67,6 +69,9 @@ const login = async (req, res) => {
         .json({ message: "Invalid Crendentials", success: false });
     }
 
+    user.lastlogin = new Date();
+    await user.save();
+
     const jwtToken = jwt.sign(
       {
         _id: user.id,
@@ -90,6 +95,9 @@ const login = async (req, res) => {
       user: {
         fullname: user.fullname,
         email: user.email,
+        role: user.role,
+        status: user.status,
+        lastlogin: user.lastlogin,
       },
     });
   } catch (error) {
