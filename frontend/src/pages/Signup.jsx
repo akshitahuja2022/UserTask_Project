@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import { handleError, handleSuccess } from "../notify/notification";
 
@@ -38,7 +38,12 @@ const Signup = () => {
         setUser(user);
         setTimeout(() => {
           navigate("/login");
-          setFormData("");
+          setFormData({
+            fullname: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
         });
       } else if (error) {
         const details = error?.details[0].message;
@@ -67,8 +72,8 @@ const Signup = () => {
             </label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="fullname"
+              value={formData.fullname}
               onChange={handleChange}
               required
               placeholder="Enter your full name"
@@ -76,7 +81,6 @@ const Signup = () => {
             />
           </div>
 
-          {/* Username */}
           <div className="space-y-2">
             <label className="block text-md font-bold text-gray-700">
               Email

@@ -35,9 +35,14 @@ const Login = () => {
         setIsLogin(true);
         setUser(user);
         setTimeout(() => {
-          navigate("/");
+          navigate("/profile");
         });
-        setFormData("");
+        setFormData({
+          fullname: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
       } else if (error) {
         const details = error?.details[0].message;
         handleError(details);
