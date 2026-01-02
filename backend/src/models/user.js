@@ -24,5 +24,5 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-const UserModel = new mongoose.model("users", userSchema);
+const UserModel = new mongoose.model("task-users", userSchema);
 export default UserModel;
