@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
-  tasks: {
+  task: {
     type: String,
     required: true,
     trim: true,
   },
   description: {
     type: String,
+    required: true,
     trim: true,
   },
   status: {
