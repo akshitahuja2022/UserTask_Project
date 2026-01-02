@@ -1,24 +1,21 @@
-# <span style="font-size:30px;">🚀 Mini User Management System</span>
+# <span style="font-size:30px;">🚀 Scalable REST API with Authentication & Role-Based Access</span>
 
-A full-stack **User Management System** built with secure authentication, role-based authorization (Admin/User), and user account lifecycle management. This project includes backend API development, frontend UI, CRUD operations, RBAC, and deployment.
+This project is developed as part of the Backend Developer Intern Assignment. The primary objective is to design and implement a secure, scalable, and production-ready backend system that demonstrates strong fundamentals in backend development, authentication, authorization, and API design. To complement the backend, a basic frontend user interface is also created to interact with and showcase the backend APIs.
 
-🔗 **GitHub Repository:** https://github.com/akshitahuja2022/User_Management
+🔗 **GitHub Repository:** https://github.com/akshitahuja2022/UserTask_Project
 
 ---
 
 ## <span style="font-size:22px;">📌 Project Overview</span>
-
-This system includes:
-- 🧍 User Signup, Login, Profile Update, Password Change  
-- 👑 Admin Access: View Users, Activate/Deactivate Accounts  
-- 🔐 JWT Authentication with Protected Routes  
-- 🔒 RBAC → Admin & User Dashboard Access Control  
+- Secure user authentication using login and JWT-based authorization. Users can access protected routes only after successful login.
+- Authenticated users can add, edit, and delete their own tasks, ensuring data is user-specific and securely managed.
+- Admin users have access to all users, with the ability to activate or deactivate user accounts, enabling role-based access control and system management.
 
 ---
 
 ## <span style="font-size:22px;">🎯 Purpose</span>
 
-Developed as part of a **48-hour technical assessment** to evaluate:
+Developed as part of a **72-hour technical assessment** to evaluate:
 - Backend & Frontend development skills  
 - API security, validation & RBAC implementation  
 - Authentication using JWT & bcrypt  
@@ -35,7 +32,7 @@ Developed as part of a **48-hour technical assessment** to evaluate:
 | Database | MongoDB Atlas (Cloud Database) |
 | Authentication | JWT (Access Token) |
 | Password Hashing | bcrypt |
-| Deployment | Backend → Render • Frontend → Vercel |
+| Deployment | Backend → Render • Frontend → Netlify |
 
 ---
 
@@ -89,12 +86,12 @@ VITE_BACKEND_URL=
 
 ---
 
-### 👤 **User Endpoints (Authenticated Users)**
+### 👤 **Task Endpoints (Authenticated Users)**
 | Method | Endpoint | Description |
 |--------|----------|--------------|
-| **GET** | `/api/user/profile` | View logged-in user profile |
-| **PUT** | `/api/user/update` | Update name & email |
-| **PUT** | `/api/user/change-password` | Change password |
+| **GET** | `/api/getTasks` | fetched All tasks |
+| **PUT** | `/api/updateTask/:id` | Edit Task |
+| **PUT** | `/api/deleteTask/:id` | Delete Task |
 
 ---
 
@@ -106,7 +103,7 @@ https://akshitahuja.postman.co/workspace/Team-Workspace~3e2b0578-c471-4f8a-8e9e-
 
 ## Folder Structure
 ```bash
-User_Management/
+Task_Management/
 ├── backend/
 │   ├── controllers/        # All controller logic for APIs
 │   ├── middleware/         # Authentication, validation, role checks
