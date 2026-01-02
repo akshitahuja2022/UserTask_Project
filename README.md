@@ -2,7 +2,7 @@
 
 This project is developed as part of the Backend Developer Intern Assignment. The primary objective is to design and implement a secure, scalable, and production-ready backend system that demonstrates strong fundamentals in backend development, authentication, authorization, and API design. To complement the backend, a basic frontend user interface is also created to interact with and showcase the backend APIs.
 
- **GitHub Repository:**  
+- **GitHub Repository:**  
   👉 [User Management (GitHub)](https://github.com/akshitahuja2022/UserTask_Project)
 
 - **Frontend (Netlify):**  
