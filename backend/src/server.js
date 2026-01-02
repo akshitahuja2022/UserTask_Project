@@ -25,7 +25,7 @@ app.use("/api/admin", adminRouter);
 app.use("/api", taskRouter);
 
 app.get("/", (req, res) => {
-  res.send("Welcom to User Management Server");
+  res.send("Welcom to Task Management Server");
 });
 
 const PORT = process.env.PORT || 4000;
