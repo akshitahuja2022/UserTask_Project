@@ -22,17 +22,17 @@ const getTasks = async (req, res) => {
 
 const addTask = async (req, res) => {
   try {
-    const { task, description, status } = req.body;
+    const { title, description, status } = req.body;
     const user = req.user.id;
 
-    if (!task || !description) {
+    if (!title || !description) {
       return res
         .status(400)
         .json({ message: "Task and Description are required", success: false });
     }
 
     const newTask = await TaskModel.create({
-      task,
+      title,
       description,
       status,
       user,
@@ -57,11 +57,11 @@ const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const { task, description, status } = req.body;
+    const { title, description, status } = req.body;
 
     const updatedTask = await TaskModel.findByIdAndUpdate(
       { _id: id },
-      { task, description, status },
+      { title, description, status },
       { new: true, runValidators: true }
     );
 
