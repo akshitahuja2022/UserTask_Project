@@ -7,8 +7,6 @@ import Navbar from "./components/Navbar";
 import UserAccount from "./pages/UserAccount";
 import { ToastContainer } from "react-toastify";
 import { useAuthContext } from "./context/AuthContext";
-import EditProfile from "./components/EditProfile";
-import ChangePassword from "./components/ChangePassword";
 import AdminDashboard from "./pages/AdminDashboard";
 
 const App = () => {
@@ -41,15 +39,6 @@ const App = () => {
         <Route
           path="/admin-dashboard"
           element={isLogin ? <AdminDashboard /> : <Navigate to="/login" />}
-        />
-
-        <Route
-          path="/editProfile"
-          element={isLogin ? <EditProfile /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/changePassword"
-          element={isLogin ? <ChangePassword /> : <Navigate to="/login" />}
         />
 
         {/* Catch-all */}

@@ -43,57 +43,13 @@ const Navbar = () => {
       <div className="flex justify-between font-serif items-center text-black px-2 py-2">
         {/* Logo */}
         <Link to="/" className="font-bold text-xl lg:text-2xl">
-          User<span className="text-gray-700">Management</span>
+          Task<span className="text-gray-700">Management</span>
         </Link>
-        {/* Navigation Links */}
-
-        {isLogin && (
-          <ul className="hidden md:flex space-x-6 py-1">
-            <li>
-              <NavLink to="/" className="text-md lg:text-lg font-semibold">
-                Home
-              </NavLink>
-            </li>
-
-            {isLogin && user?.role === "admin" && (
-              <li>
-                <NavLink
-                  to="/admin-dashboard"
-                  className="text-md lg:text-lg font-semibold"
-                >
-                  Admin Dashboard
-                </NavLink>
-              </li>
-            )}
-
-            {isLogin && user?.role === "user" && (
-              <>
-                <li>
-                  <NavLink
-                    to="/editProfile"
-                    className="text-md lg:text-lg font-semibold"
-                  >
-                    EditProfile
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/changePassword"
-                    className="text-md lg:text-lg font-semibold"
-                  >
-                    ChangePassword
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
-        )}
 
         {/* Buttons */}
         <div className="hidden sm:flex gap-4 relative">
           {isLogin ? (
             <>
-              <p className="hidden lg:block text-md lg:text-xl font-semibold">{`Role ${user.role}`}</p>
               <Link
                 to="/profile"
                 className="text-md lg:text-lg bg-gray-400 font-bold text-black px-3 rounded-md hover:bg-gray-500"
@@ -142,20 +98,6 @@ const Navbar = () => {
               {user?.role === "admin" ? (
                 <>
                   <Link
-                    to="/home"
-                    className="font-bold my-1"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to="/admin-dashboard"
-                    className="font-bold my-1"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Admin Dashboard
-                  </Link>
-                  <Link
                     to="/profile"
                     className="font-bold my-1"
                     onClick={() => setIsMenu(false)}
@@ -165,28 +107,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Link
-                    to="/home"
-                    className="font-bold my-1"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to="/profile"
-                    className="font-bold my-1"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Edit Profile
-                  </Link>
-                  <Link
-                    to="/changePassword"
-                    className="font-bold my-1"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Change Password
-                  </Link>
-                  <Link
+                <Link
                     to="/profile"
                     className="font-bold my-1"
                     onClick={() => setIsMenu(false)}

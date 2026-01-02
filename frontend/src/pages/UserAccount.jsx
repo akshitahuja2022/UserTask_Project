@@ -35,39 +35,6 @@ export default function UserAccount() {
                 {user.role}
               </p>
             </div>
-
-            <div>
-              <h2 className="block text-md font-medium text-gray-700">
-                Status
-              </h2>
-              <div className="mt-1">
-                <span
-                  className={`inline-block px-5 py-2 rounded-full text-md font-medium ${
-                    user.status === "active"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
-                  }`}
-                >
-                  {user.status}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex text-center flex-col sm:flex-row justify-center gap-3">
-            <Link
-              to="/editProfile"
-              className="w-40 px-3 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-500"
-            >
-              Edit Profile
-            </Link>
-
-            <Link
-              to="/changePassword"
-              className="w-40 px-3 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-500"
-            >
-              Change Password
-            </Link>
           </div>
         </form>
       </div>
