@@ -106,8 +106,7 @@ VITE_BACKEND_URL=
 
 
 📦 Postman Collection:
-https://akshitahuja.postman.co/workspace/Team-Workspace~3e2b0578-c471-4f8a-8e9e-a995b3f32b9b/collection/45115762-7c38cd4a-b1cf-4dd7-8d66-de1064a27f97?action=share&source=copy-link&creator=45115762
-
+- https://documenter.getpostman.com/view/45115762/2sBXVckYDu
 ---
 
 ## Folder Structure
