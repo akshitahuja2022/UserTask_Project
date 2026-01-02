@@ -22,7 +22,7 @@ const getTasks = async (req, res) => {
 
 const addTask = async (req, res) => {
   try {
-    const { title, description, status } = req.body;
+    const { title, description } = req.body;
     const user = req.user.id;
 
     if (!title || !description) {
@@ -34,7 +34,6 @@ const addTask = async (req, res) => {
     const newTask = await TaskModel.create({
       title,
       description,
-      status,
       user,
     });
 
@@ -57,11 +56,11 @@ const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const { title, description, status } = req.body;
+    const { title, description } = req.body;
 
     const updatedTask = await TaskModel.findByIdAndUpdate(
       { _id: id },
-      { title, description, status },
+      { title, description },
       { new: true, runValidators: true }
     );
 
