@@ -28,7 +28,10 @@ const addTask = async (req, res) => {
     if (!title || !description) {
       return res
         .status(400)
-        .json({ message: "Task and Description are required", success: false });
+        .json({
+          message: "Title and Description are required",
+          success: false,
+        });
     }
 
     const newTask = await TaskModel.create({
