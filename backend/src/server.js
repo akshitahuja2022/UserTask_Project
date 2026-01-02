@@ -6,6 +6,7 @@ import cookieparser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 import adminRouter from "./routes/admin.route.js";
+import taskRouter from "./routes/task.route.js";
 dotenv.config();
 connectDb();
 
@@ -22,6 +23,7 @@ app.use(
 // routes
 app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/task", taskRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcom to User Management Server");
