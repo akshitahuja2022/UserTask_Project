@@ -41,12 +41,10 @@ const Navbar = () => {
   return (
     <>
       <div className="flex justify-between font-serif items-center text-black px-2 py-2">
-        {/* Logo */}
         <Link to="/" className="font-bold text-xl lg:text-2xl">
           Task<span className="text-gray-700">Management</span>
         </Link>
 
-        {/* Buttons */}
         <div className="hidden sm:flex gap-4 relative">
           {isLogin ? (
             <>
@@ -107,7 +105,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                <Link
+                  <Link
                     to="/profile"
                     className="font-bold my-1"
                     onClick={() => setIsMenu(false)}

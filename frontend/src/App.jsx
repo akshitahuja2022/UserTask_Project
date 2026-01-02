@@ -8,6 +8,7 @@ import UserAccount from "./pages/UserAccount";
 import { ToastContainer } from "react-toastify";
 import { useAuthContext } from "./context/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
+import EditTask from "./pages/EditTask";
 
 const App = () => {
   const { isLogin } = useAuthContext();
@@ -18,6 +19,8 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
+
+        <Route path="/edit-task/:id" element={<EditTask />} />
 
         {/* Protected Profile Route */}
         <Route

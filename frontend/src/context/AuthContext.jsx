@@ -16,6 +16,12 @@ const AuthContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
+  const [taskForm, setTaskForm] = useState({
+    title: "",
+    description: "",
+  });
+  const [tasks, setTasks] = useState([]);
   return (
     <AuthContext.Provider
       value={{
@@ -31,6 +37,10 @@ const AuthContextProvider = ({ children }) => {
         setPage,
         loading,
         setLoading,
+        taskForm,
+        setTaskForm,
+        tasks,
+        setTasks,
       }}
     >
       {children}
